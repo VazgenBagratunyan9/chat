@@ -1,0 +1,23 @@
+.btn {
+    background-color: black;
+    padding: 15px 30px;
+    border: 1px solid black;
+    outline: none;
+    box-shadow: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:disabled {
+        pointer-events: none;
+        background-color: white;
+        color: black;
+    }
+
+    &:hover {
+        background-color: white;
+        color: black;
+    }
+}

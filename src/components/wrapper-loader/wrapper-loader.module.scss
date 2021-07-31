@@ -1,0 +1,7 @@
+    @use 'src/sass/abstracts/mixins';
+
+.container {
+    flex: 1;
+    @include mixins.flexCenter;
+    min-height: 50vmin;
+}

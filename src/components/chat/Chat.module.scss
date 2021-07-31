@@ -1,0 +1,31 @@
+.container{
+  width: 100%;
+
+  .chat{
+    height:80vh;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 1px;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #f3f3f3;
+      outline: 1px solid slategrey;
+    }
+  }
+  .text{
+    max-width: 90%;
+    height: 13vh;
+    textarea{
+      outline: none;
+      resize: none;
+      width: 98%;
+      height: 100%;
+    }
+
+  }
+}

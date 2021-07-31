@@ -1,0 +1,44 @@
+.containerGuest,.containerOwner{
+  display: flex;
+  flex-direction: row;
+  max-width: 90%;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #ffffff;
+  margin-bottom: 10px;
+  .userInfo{
+    display: flex;
+    flex-direction: column;
+    background: #3acadf;
+    padding: 5px;
+    //border-radius: 5px 0 0 5px;
+    .image{
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      border-radius: 50%;
+      img{
+        max-width: 100%;
+        //border-radius: 50%;
+        //width: 50px;
+        //height: 50px;
+        object-fit:fill;
+        transform: scale(1.5) translateY(17%);
+        object-position:center;
+        //transform: translateY(50%);
+      }
+    }
+    .name{
+      //padding: 5px;
+    }
+  }
+  .text{
+    padding: 10px;
+  }
+}
+.containerOwner{
+  flex-direction: row-reverse;
+  .userInfo{
+    background: #b6b6b6;
+  }
+}

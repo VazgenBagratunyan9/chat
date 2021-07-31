@@ -1,0 +1,24 @@
+.App {
+  background: black;
+  flex: 1;
+}
+.message-button{
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 9998;
+  cursor: pointer;
+  svg{
+    width: 50px;
+    height: 50px;
+    background: white;
+  }
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
