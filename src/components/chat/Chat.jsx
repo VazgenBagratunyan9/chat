@@ -9,8 +9,9 @@ const Chat = ()=>{
             <div className={styles.chat}>
                 {
                     data.map(user=>{
+
                         return(
-                           <UserItem {...user} />
+                           <UserItem key={user.id} {...user} />
                         )
                     })
                 }
