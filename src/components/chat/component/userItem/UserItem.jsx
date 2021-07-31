@@ -7,7 +7,7 @@ const UserItem = ({url,fullName,text,userID}) => {
         [styles.containerOwner]:userID!==myID,
     })
     return (
-        <div className={user}>
+        <div className={user} >
             <div className={styles.userInfo}>
                 <span className={styles.image}>
                     <img src={url} alt="user image"/>
