@@ -19,9 +19,11 @@ function App(props) {
     const [isOpen,setIsOpen] = useState(false);
     const [start,setStart] = useState(false);
     const status = props.user.status;
-    useEffect(() => {
 
+    useEffect(async () => {
+        await fetch('https://bewedoc.ru/api/message');
         const token = localStorage.getItem('token') ?? '';
+
         props.dispatch(getUserAction(token))
 
     }, [status])
@@ -46,7 +48,7 @@ function App(props) {
                     ()=>{setIsOpen(prev=>!prev)}
                 }
             >
-                <Chat />
+                <Chat id={props.user.data? props.user.data.id:1}/>
             </Modal>
             {
                 props.user.status?
