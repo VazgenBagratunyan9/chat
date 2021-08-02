@@ -1,4 +1,5 @@
 import {types} from "./user.types";
+import {HOST_NAME} from "../../config/config";
 
 export function loginAction(status){
     return {
@@ -11,7 +12,7 @@ export function getUserAction(token){
         dispatch(loadingAction(true))
         const dataForm = new FormData();
         dataForm.append('token', token)
-        fetch('https://bewedoc.ru/api/user', {
+        fetch(HOST_NAME + '/user', {
             method: 'POST',
             body: dataForm
         }).then(jsonData => jsonData.json())

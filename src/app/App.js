@@ -19,13 +19,24 @@ function App(props) {
     const [isOpen,setIsOpen] = useState(false);
     const [start,setStart] = useState(false);
     const status = props.user.status;
+
     const {user,dispatch} = props
     console.log(user)
     useEffect(() => {
         const token = localStorage.getItem('token') ?? '';
         dispatch(getUserAction(token))
+
+    },[])
+    useEffect(async () => {
+        await fetch('https://bewedoc.ru/api/message');
+        const token = localStorage.getItem('token') ?? '';
+
+        props.dispatch(getUserAction(token))
+
+
     }, [status])
   return (
+
     <Context.Provider value={{
         status: status
     }}>
@@ -35,10 +46,12 @@ function App(props) {
             {/*        <Loading />:''*/}
             {/*}*/}
             <Header id={user.data?user.data.id: null}/>
-            {(!isOpen) && <span className='message-button' onClick={() => {
+
+            {(!isOpen && user.status) && <span className='message-button' onClick={() => {
                 setIsOpen(prev => !prev)
                 setStart(true)
             }}><MessageSVG /></span>}
+
             <Modal
                 isOpen={isOpen}
                 start={start}
@@ -46,7 +59,7 @@ function App(props) {
                     ()=>{setIsOpen(prev=>!prev)}
                 }
             >
-                <Chat />
+                <Chat id={props.user.data? props.user.data.id:1}/>
             </Modal>
             {
                 props.user.status?
@@ -62,8 +75,12 @@ function App(props) {
             }
         </div>
     </Context.Provider>
+
   );
 }
+
+
+
 const mapStateToProps = (state) => {
 
     return{

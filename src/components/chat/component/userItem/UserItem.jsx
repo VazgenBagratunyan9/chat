@@ -1,7 +1,14 @@
 import styles from './UserItem.module.scss'
 import classNames from 'classnames'
+import {connect, useSelector} from "react-redux";
 const UserItem = ({url,fullName,text,userID}) => {
-    const myID = '57sw78'
+    const myID =  useSelector((store) => {
+        if (store.user.data){
+            return store.user.data.id
+        }
+        return null
+    });
+    console.log(myID)
     const user = classNames({
         [styles.containerGuest]:userID===myID,
         [styles.containerOwner]:userID!==myID,
@@ -21,4 +28,4 @@ const UserItem = ({url,fullName,text,userID}) => {
     )
 }
 
-export default UserItem
+export default connect()(UserItem)

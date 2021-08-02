@@ -5,10 +5,11 @@ import {loginAction} from "../../redux/user/user.action";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {Redirect} from "react-router";
+import {HOST_NAME} from "../../config/config";
 const Login = (props) => {
     const [error, setError] = useState('');
     const [redirect, setRedirect] = useState(false);
-    const url = 'https://bewedoc.ru/api/user/login';
+    const url = HOST_NAME + '/user/login';
     const login = async (e) => {
         e.preventDefault();
         let dataForm = new FormData(e.target);
@@ -45,7 +46,9 @@ const Login = (props) => {
             }
             <form className={classnames(styles.form)} onSubmit={login}>
                 <h2>Login</h2>
-                <p>{error}</p>
+                {
+                    error?<p className={classnames(styles.error)}>{error}</p>:''
+                }
                 <input type="email" name='email' placeholder='email'/>
                 <input type="password" name='password' placeholder='password'/>
                 <button type='submit'>Login</button>

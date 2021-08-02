@@ -5,7 +5,6 @@ import classnames from "classnames";
 const User = ({user}) => {
     if (user.data){
         const link = `https://${user.data.email.split('@')[1]}`;
-        console.log(link)
         if (user.data.verifite_email !== null) {
             return (
                 <div className={classnames(styles.user)}>
