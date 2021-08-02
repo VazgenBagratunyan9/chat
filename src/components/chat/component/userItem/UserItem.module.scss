@@ -7,8 +7,10 @@
   background: #ffffff;
   margin-bottom: 10px;
   .userInfo{
+    width: 100px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background: #3acadf;
     padding: 5px;
     //border-radius: 5px 0 0 5px;
@@ -29,7 +31,7 @@
       }
     }
     .name{
-      //padding: 5px;
+      text-align: center;
     }
   }
   .text{
