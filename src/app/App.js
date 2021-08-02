@@ -9,7 +9,7 @@ import {Route, Switch} from "react-router-dom";
 import Login from "../components/auth/Login";
 import Registration from "../components/auth/Registration";
 import {getUserAction, loadingAction} from "../redux/user/user.action";
-import Loading from "../components/loading/Loading";
+// import Loading from "../components/loading/Loading";
 import User from "../components/user/User";
 
 
@@ -19,23 +19,23 @@ function App(props) {
     const [isOpen,setIsOpen] = useState(false);
     const [start,setStart] = useState(false);
     const status = props.user.status;
+    const {user,dispatch} = props
+    console.log(user)
     useEffect(() => {
-
         const token = localStorage.getItem('token') ?? '';
-        props.dispatch(getUserAction(token))
-
+        dispatch(getUserAction(token))
     }, [status])
   return (
     <Context.Provider value={{
         status: status
     }}>
         <div className="App">
-            {
-                props.user.loading?
-                    <Loading />:''
-            }
-            <Header id={props.user.data?props.user.data.id: null}/>
-            {!isOpen && <span className='message-button' onClick={() => {
+            {/*{*/}
+            {/*    props.user.loading?*/}
+            {/*        <Loading />:''*/}
+            {/*}*/}
+            <Header id={user.data?user.data.id: null}/>
+            {(!isOpen) && <span className='message-button' onClick={() => {
                 setIsOpen(prev => !prev)
                 setStart(true)
             }}><MessageSVG /></span>}

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import classnames from 'classnames'
 import styles from './auth.module.scss'
+import {handleInput, inputState, setInputState} from '../../hooks/useInput.hook'
 const Registration = () => {
     const [error, setError] = useState('')
 
